@@ -38,7 +38,7 @@ function getLocalStorage() {
     produceSearchHistory();
 }
 
-function getApi2(search) {
+function getApi(search) {
   let requestUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${search}&appid=202ed1305c35eb4c1d3fc781601f9daf&units=imperial`;
 
   fetch(requestUrl)
@@ -75,40 +75,6 @@ function getApi2(search) {
   })
 }
 
-
-function getApi() {
-  let requestUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName.value}&appid=202ed1305c35eb4c1d3fc781601f9daf&units=imperial`;
-
-  fetch(requestUrl)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data)
-    mainCityCard.innerHTML = `
-    <h2 id="city">${data.city.name}</h2>
-    <p>${dayjs().format('M/DD/YYYY')}</p>
-    <p>Tempature: ${data.list[0].main.temp}&#176;F</p>
-    <p>Wind: ${data.list[0].wind.speed} MPH</p>
-    <p>Humidity: ${data.list[0].main.humidity} %</p>
-    `;
-
-    // Display 5-day forecast information
-    forecastContainer.innerHTML = '';
-    for (let i = 1; i <= 40; i += 8) {
-      forecastContainer.innerHTML += `
-        <div class="forecast-day">
-          <p>Date: ${data.list[i].dt_txt}</p>
-          <p>Temperature: ${data.list[i].main.temp}&deg;F</p>
-          <p>Humidity: ${data.list[i].main.humidity}%</p>
-          <p>Wind Speed: ${data.list[i].wind.speed} mph</p>
-          <!-- Add icon representation of weather conditions -->
-        </div>
-      `;
-    }  
-  })
-}
-
 function coords(search) {
   let Url = `https://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=5&appid=202ed1305c35eb4c1d3fc781601f9daf`;
 
@@ -118,7 +84,7 @@ function coords(search) {
   })
   .then(function (data) {
     updateHistory(search);
-    getApi2(search)
+    getApi(search)
   })
 }
 
@@ -140,6 +106,3 @@ function historyClick(e) {
 getLocalStorage();
 searchForm.addEventListener('submit', submit);
 searchHistoryContainer.addEventListener('click', historyClick);
-fetchButton.addEventListener('click', () => {
-  getApi();
-});
