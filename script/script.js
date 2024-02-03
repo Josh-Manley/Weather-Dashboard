@@ -1,10 +1,11 @@
 let fetchButton = document.getElementById('fetch-button');
 let cityName = document.getElementById('search-city-input');
-let mainCityCard = document.getElementById('main-city-info')
-let forecastContainer = document.getElementById('forecast-container')
+let mainCityCard = document.getElementById('main-city-info');
+let forecastContainer = document.getElementById('forecast-container');
+let searchHistoryContainer = document.getElementById('search-history');
 
 function getApi() {
-  let requestUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName.value}&cnt=5&appid=202ed1305c35eb4c1d3fc781601f9daf&units=imperial`;
+  let requestUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName.value}&appid=202ed1305c35eb4c1d3fc781601f9daf&units=imperial`;
 
   fetch(requestUrl)
   .then(function (response) {
@@ -22,7 +23,7 @@ function getApi() {
 
     // Display 5-day forecast information
     forecastContainer.innerHTML = '';
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 1; i <= 40; i += 8) {
       forecastContainer.innerHTML += `
         <div class="forecast-day">
           <p>Date: ${data.list[i].dt_txt}</p>
@@ -32,8 +33,16 @@ function getApi() {
           <!-- Add icon representation of weather conditions -->
         </div>
       `;
-    }    
+    }
+    
+   
+   
   })
 }
-
-fetchButton.addEventListener('click', getApi);
+function createSearchHistory() {
+  let searchHistoryButton = document.createElement("INPUT");
+  searchHistoryButton.setAttribute("type", "button");
+  searchHistoryButton.setAttribute("value", `${cityName.value}`);
+  searchHistoryContainer.appendChild(searchHistoryButton);
+}
+fetchButton.addEventListener('click', getApi,)

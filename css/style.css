@@ -1,0 +1,21 @@
+#main-city-info {
+  border: solid black 2px;
+  display: inline-block;
+  position: relative;
+  left: 300px;
+  top: 0px;
+}
+
+.forecast-day {
+  background-color: rgb(69, 69, 183);
+}
+
+#search-city-input {
+display: inline;
+  
+}
+
+#fetch-button {
+display: inline;
+  
+}
