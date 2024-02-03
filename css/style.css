@@ -1,21 +1,95 @@
+* {
+  box-sizing: border-box;
+}
+
+.title {
+  text-align: center;
+  font-size: 60px;
+  background-color: rgb(156, 89, 176);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#main-container {
+  display: flex;
+}
+
 #main-city-info {
+  width: 650px;
+  height: 300px;
   border: solid black 2px;
-  display: inline-block;
-  position: relative;
-  left: 300px;
-  top: 0px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+#main-card-title {
+  display: flex;
+}
+
+#main-card-date {
+  font-weight: bold;
+  font-size: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#main-img {
+  width: 60px;
+  height: 70px;
+  margin-top: 5px;
+}
+
+#city {
+  font-size: 35px;
 }
 
 .forecast-day {
   background-color: rgb(69, 69, 183);
 }
 
+#search-form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+#history-btn {
+  width: 300px;
+  height: 30px;
+  align-items: center;
+  border: none;
+  background-color: rgb(57, 57, 222);
+  border-radius: 5px;
+  margin-bottom: 7px;
+}
+
 #search-city-input {
-display: inline;
-  
+  height: 30px;
+  margin-bottom: 7px;
 }
 
 #fetch-button {
-display: inline;
-  
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: lightcoral;
+  margin-bottom: 7px;
+}
+
+#forecast-container {
+  display: flex;
+ 
+}
+
+.forecast-day {
+  display: flex;
+  border-radius: 10px;
+  flex-direction: column;
+  margin: 10px;
+}
+
+#card-img {
+  width: 60px;
+  height: 70px;
 }

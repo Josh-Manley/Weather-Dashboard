@@ -7,12 +7,20 @@
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-  <input id="search-city-input" type="text" placeholder="Search City">
-  <button id="fetch-button" onclick="createSearchHistory()">Search</button>
-  <div id="search-history"></div>
 
-  <div id="main-city-info"></div>
-
+  <h1 class="title">Weather Dashboard</h1>
+  <h2>Search for a city:</h2>
+  <div id="main-container">
+    <form id="search-form">
+      <input id="search-city-input" type="text" placeholder="Search City">
+      <button id="fetch-button">Search</button>
+      <div id="search-history"></div>
+    </form>
+  
+    <div id="main-city-info"></div>
+  </div>
+ 
+  <h2>5 Day Forecast:</h2>
   <div id="forecast-container"></div>
 
 
