@@ -92,6 +92,8 @@ body {
 
 .forecast-day {
   display: flex;
+  align-items: center;
+  width: 200px;
   border-radius: 10px;
   flex-direction: column;
   margin: 10px;
