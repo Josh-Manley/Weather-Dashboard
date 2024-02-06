@@ -11,6 +11,10 @@
   padding: 15px;
 }
 
+#search-for-city-txt {
+  font-size: 32px;
+}
+
 #main-container {
   display: flex;
 }
@@ -77,6 +81,7 @@
 #search-city-input {
   height: 30px;
   margin-bottom: 7px;
+  font-size: 16px;
 }
 
 #fetch-button {
