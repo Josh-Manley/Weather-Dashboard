@@ -105,7 +105,9 @@ function historyClick(e) {
 
   let searchHistoryButton = e.target;
   let search = searchHistoryButton.getAttribute('data-search');
-  coords(search);
+  if (e.target.id === 'history-btn') {
+    coords(search);
+  } 
 }
 
 function displayMainCityInfo() {
