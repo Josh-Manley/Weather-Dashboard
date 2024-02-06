@@ -1,7 +1,7 @@
 let fetchButton = document.getElementById('fetch-button');
 let searchForm = document.getElementById('search-form');
 let cityName = document.getElementById('search-city-input');
-let mainCityCard = document.getElementById('main-city-info');
+let mainCityCard = document.querySelector('.main-city-info');
 let forecastContainer = document.getElementById('forecast-container');
 let searchHistoryContainer = document.getElementById('search-history');
 let searchHistory = [];
@@ -82,7 +82,7 @@ function coords(search) {
   .then(function (response) {
     return response.json();
   })
-  .then(function (data) {
+  .then(function () {
     updateHistory(search);
     getApi(search)
   })
@@ -103,6 +103,13 @@ function historyClick(e) {
   coords(search);
 }
 
+function displayMainCityInfo() {
+  mainCityCard.classList.remove('hidden')
+}
+
 getLocalStorage();
+
+fetchButton.addEventListener('click', displayMainCityInfo);
 searchForm.addEventListener('submit', submit);
-searchHistoryContainer.addEventListener('click', historyClick);
+searchHistoryContainer.addEventListener('click',  historyClick);
+searchHistoryContainer.addEventListener('click', displayMainCityInfo);
