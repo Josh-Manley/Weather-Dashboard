@@ -4,6 +4,7 @@ let cityName = document.getElementById('search-city-input');
 let mainCityCard = document.querySelector('.main-city-info');
 let forecastContainer = document.getElementById('forecast-container');
 let searchHistoryContainer = document.getElementById('search-history');
+let dailyForecastContainer = document.getElementById('day-forecast-header');
 let searchHistory = [];
 
 
@@ -18,6 +19,7 @@ function produceSearchHistory() {
     searchHistoryButton.textContent = searchHistory[i];
     searchHistoryContainer.append(searchHistoryButton);
   }
+
 }
 
 function updateHistory(search) {
@@ -54,7 +56,7 @@ function getApi(search) {
       <img id="main-img" src="https://openweathermap.org/img/w/${data.list[0].weather[0].icon}.png">
     </div>
     <p>Tempature: ${data.list[0].main.temp}&#176;F</p>
-    <p>Wind: ${data.list[0].wind.speed} MPH</p>
+    <p>Wind Speed: ${data.list[0].wind.speed} MPH</p>
     <p>Humidity: ${data.list[0].main.humidity} %</p>
     `;
 
@@ -92,8 +94,11 @@ function submit(e) {
   e.preventDefault();
 
   let search = cityName.value.trim();
-  coords(search);
-  cityName.value = '';
+
+  if (search !== '') {
+    coords(search);
+    cityName.value = '';
+  }
 }
 
 function historyClick(e) {
@@ -104,12 +109,18 @@ function historyClick(e) {
 }
 
 function displayMainCityInfo() {
-  mainCityCard.classList.remove('hidden')
+    mainCityCard.classList.remove('hidden');
+    dailyForecastContainer.classList.remove('hidden');
 }
 
 getLocalStorage();
 
-fetchButton.addEventListener('click', displayMainCityInfo);
+function test() {
+  if (cityName.value !== '') {
+     displayMainCityInfo();
+  } 
+}
+fetchButton.addEventListener('click', test);
 searchForm.addEventListener('submit', submit);
 searchHistoryContainer.addEventListener('click',  historyClick);
 searchHistoryContainer.addEventListener('click', displayMainCityInfo);

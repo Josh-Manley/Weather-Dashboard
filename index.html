@@ -14,14 +14,18 @@
     <form id="search-form">
       <input id="search-city-input" type="text" placeholder="Search City">
       <button id="fetch-button">Search</button>
+      <div id="line-divider"></div>
       <div id="search-history"></div>
     </form>
   
     <div class="hidden main-city-info"></div>
   </div>
- 
-  <h2>5 Day Forecast:</h2>
-  <div id="forecast-container"></div>
+  
+  <div id="day-forecast-container">
+    <h2 id="day-forecast-header" class="hidden">5-Day Forecast:</h2>
+    <div id="forecast-container"></div>
+  </div>
+
 
 
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>

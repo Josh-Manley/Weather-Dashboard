@@ -1,26 +1,23 @@
 * {
   box-sizing: border-box;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .title {
   text-align: center;
   font-size: 60px;
   background-color: rgb(156, 89, 176);
-  margin-top: 0;
-  margin-bottom: 0;
+  margin: -10px;
+  padding: 15px;
 }
 
 #main-container {
   display: flex;
 }
-body {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  background-color: rgb(189, 203, 198);
-}
 
 .main-city-info {
   width: 650px;
-  height: 300px;
+  height: 270px;
   border: solid black 2px;
   border-radius: 5px;
   display: flex;
@@ -56,6 +53,8 @@ body {
 
 .forecast-day {
   background-color: rgb(69, 69, 183);
+  font-size: 17px;
+  font-weight: 600;
 }
 
 #search-form {
@@ -66,7 +65,8 @@ body {
 
 #history-btn {
   width: 300px;
-  height: 30px;
+  height: 40px;
+  font-size: 20px;
   align-items: center;
   border: none;
   background-color: rgb(57, 57, 222);
@@ -87,15 +87,31 @@ body {
   margin-bottom: 7px;
 }
 
+#line-divider {
+  border: thin solid rgb(149, 142, 142);
+  margin-bottom: 10px;
+  width: 300px;
+  position: relative;
+}
+
+#day-forecast-header {
+  margin-left: 10px;
+}
+
+#day-forecast-container {
+  position: absolute;
+  left: 310px;
+  top: 450px;
+}
+
 #forecast-container {
   display: flex;
- 
 }
 
 .forecast-day {
   display: flex;
   align-items: center;
-  width: 200px;
+  width: 210px;
   border-radius: 10px;
   flex-direction: column;
   margin: 10px;
