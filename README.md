@@ -5,3 +5,6 @@ This webpage will give you weather info and a 5 day forecast for any city you se
 then can click on and it will give you the weather data.
 
 ## Link to site
+https://josh-manley.github.io/Weather-Dashboard/
+
+## Visuals
